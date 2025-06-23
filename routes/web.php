@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DetailTransactionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\SayHelloController;
@@ -34,6 +35,7 @@ Route::get('product/{productId}/edit', [ProductController::class, 'edit'])->name
 Route::put('product/{productId}/update', [ProductController::class, 'update'])->name('product.update');
 Route::delete('product/{productId}/delete', [ProductController::class, 'destroy'])->name('product.destroy');
 
+// route transaksi
 Route::get('transaction', [TransactionController::class, 'index'])->name('transaction.index');
 Route::get('transaction/create', [TransactionController::class, 'create'])->name('transaction.create');
 Route::post('transaction/cart/add', [TransactionController::class, 'addToCart'])->name('transaction.cart.add');
@@ -41,3 +43,7 @@ Route::post('transaction/update', [TransactionController::class, 'updateCart'])-
 Route::get('transaction/cancel/{id}', [TransactionController::class, 'removeFromCart'])->name('transaction.cart.remove');
 Route::get('transaction/cancel', [TransactionController::class, 'cancel'])->name('transaction.cancel');
 Route::post('transaction/checkout', [TransactionController::class, 'checkout'])->name('transaction.checkout');
+
+
+// route detail transaksi
+Route::get('transaction/detail/{id}', [DetailTransactionController::class, 'showDetail'])->name('transaction.detail');

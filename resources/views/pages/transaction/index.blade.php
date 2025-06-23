@@ -30,7 +30,7 @@
                 <td>{{ $transaction->total_price }}</td>
                 <td>
                     <div class="d-flex gap-2">
-                        <a href="" class="btn btn-sm btn-info">
+                        <a href="{{ route('transaction.detail', $transaction->id) }}" class="btn btn-sm btn-info">
                             Detail
                         </a>
                     </div>

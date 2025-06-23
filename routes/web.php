@@ -37,5 +37,7 @@ Route::delete('product/{productId}/delete', [ProductController::class, 'destroy'
 Route::get('transaction', [TransactionController::class, 'index'])->name('transaction.index');
 Route::get('transaction/create', [TransactionController::class, 'create'])->name('transaction.create');
 Route::post('transaction/cart/add', [TransactionController::class, 'addToCart'])->name('transaction.cart.add');
-// Route::post('transaction/cart/update', [TransactionController::class, 'addToCart'])->name('transaction.cart.update');
-// Route::post('transaction/cart/delete', [TransactionController::class, 'addToCart'])->name('transaction.cart.delete');
+Route::post('transaction/update', [TransactionController::class, 'updateCart'])->name('transaction.cart.update');
+Route::get('transaction/cancel/{id}', [TransactionController::class, 'removeFromCart'])->name('transaction.cart.remove');
+Route::get('transaction/cancel', [TransactionController::class, 'cancel'])->name('transaction.cancel');
+Route::post('transaction/checkout', [TransactionController::class, 'checkout'])->name('transaction.checkout');

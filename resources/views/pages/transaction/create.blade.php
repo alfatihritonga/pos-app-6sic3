@@ -71,7 +71,7 @@
                                     <td>{{ $item['name'] }}</td>
                                     <td>Rp {{ number_format($item['price'], 0, ',', '.') }}</td>
                                     <td>
-                                        <form method="POST" action="" class="d-flex align-items-center gap-2">
+                                        <form method="POST" action="{{ route('transaction.cart.update') }}" class="d-flex align-items-center gap-2">
                                             @csrf
                                             <input type="hidden" name="product_id" value="{{ $item['product_id'] }}">
                                             <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1"
@@ -81,7 +81,7 @@
                                     </td>
                                     <td>Rp {{ number_format($item['subtotal'], 0, ',', '.') }}</td>
                                     <td>
-                                        <a href="" class="btn btn-sm btn-outline-danger">Hapus</a>
+                                        <a href="{{ route('transaction.cart.remove', $item['product_id']) }}" class="btn btn-sm btn-outline-danger">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -97,13 +97,13 @@
                     <h6>Amount:</h6>
                     <h4 class="text-primary mb-4">Rp {{ $total }}</h4>
 
-                    <form action="" method="POST">
+                    <form action="{{ route('transaction.checkout') }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="cash" class="form-label ">Cash</label>
                             <input type="number" name="cash" id="cash" class="form-control" min="{{ $total }}" placeholder="input cash received" required>
                         </div>
-                        <a href="" class="btn btn-outline-danger">Cancel</a>
+                        <a href="{{ route('transaction.cancel') }}" class="btn btn-outline-danger">Cancel</a>
                         <button type="submit" class="btn btn-success">Pay Now</button>
                     </form>
 

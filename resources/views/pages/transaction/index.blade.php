@@ -30,14 +30,9 @@
                 <td>{{ $transaction->total_price }}</td>
                 <td>
                     <div class="d-flex gap-2">
-                        <a href="" class="btn btn-sm btn-warning">
-                            Edit
+                        <a href="" class="btn btn-sm btn-info">
+                            Detail
                         </a>
-                        <form action="" method="post">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
-                        </form>
                     </div>
                 </td>
             </tr>

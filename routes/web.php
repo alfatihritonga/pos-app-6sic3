@@ -47,3 +47,6 @@ Route::post('transaction/checkout', [TransactionController::class, 'checkout'])-
 
 // route detail transaksi
 Route::get('transaction/detail/{id}', [DetailTransactionController::class, 'showDetail'])->name('transaction.detail');
+
+// route cetak laporan
+Route::get('transaction/print/{id}', [DetailTransactionController::class, 'print'])->name('transaction.print');

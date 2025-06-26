@@ -73,7 +73,7 @@
     </table>
 
     <div class="mt-3 d-flex justify-content-end">
-        <a href="{{ route('transaction.index') }}" class="btn btn-secondary">
+        <a href="{{ route('transaction.print', $transaction->id) }}" class="btn btn-secondary">
             Print
         </a>
     </div>

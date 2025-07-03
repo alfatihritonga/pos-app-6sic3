@@ -9,15 +9,33 @@
         <li class="nav-item">
           <a class="nav-link" href="/">Home</a>
         </li>
+        @if (Auth::user()->role == 'admin')    
+          <li class="nav-item">
+            <a class="nav-link" href="/category">Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/product">Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/transaction">Transaction</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('user.index') }}">User</a>
+          </li>
+        @else
+            <li class="nav-item">
+              <a class="nav-link" href="/transaction">Transaction</a>
+            </li>
+        @endif
+
         <li class="nav-item">
-          <a class="nav-link" href="/category">Category</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/product">Product</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/transaction">Transaction</a>
-        </li>
+          <form action="{{ route('logout') }}" method="POST" class="d-inline">
+              @csrf
+              <button type="submit" class="btn btn-danger">
+                  Logout
+              </button>
+          </form>
+      </li>
       </ul>
     </div>
   </div>
